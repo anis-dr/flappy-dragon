@@ -1,13 +1,13 @@
 use bracket_lib::prelude::*;
 
-struct Player {
+pub struct Player {
   x: i32,
-  y: i32,
+  pub y: i32,
   velocity: f32,
 }
 
 impl Player {
-  fn new(x: i32, y: i32) -> Self {
+  pub fn new(x: i32, y: i32) -> Self {
     Player {
       x,
       y,
@@ -15,11 +15,11 @@ impl Player {
     }
   }
 
-  fn render(&mut self, ctx: &mut BTerm) {
+  pub(crate) fn render(&mut self, ctx: &mut BTerm) {
     ctx.set(0, self.y, YELLOW, BLACK, to_cp437('@'));
   }
 
-  fn gravity_and_move(&mut self) {
+  pub(crate) fn gravity_and_move(&mut self) {
     if self.velocity < 2.0 {
       self.velocity += 0.2;
     }
@@ -30,7 +30,7 @@ impl Player {
     }
   }
 
-  fn flap(&mut self) { 
+  pub(crate) fn flap(&mut self) {
     self.velocity = -2.0;
   }
 }

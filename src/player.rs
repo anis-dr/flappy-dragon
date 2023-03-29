@@ -1,7 +1,7 @@
 use bracket_lib::prelude::*;
 
 pub struct Player {
-  x: i32,
+  pub x: i32,
   pub y: i32,
   velocity: f32,
 }

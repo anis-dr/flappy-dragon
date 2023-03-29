@@ -1,10 +1,6 @@
 use bracket_lib::prelude::*;
 
-use crate::player::Player;
-
-const SCREEN_WIDTH: i32 = 80;
-const SCREEN_HEIGHT: i32 = 50;
-const FRAME_DURATION: f32 = 75.0;
+use crate::{player::Player, FRAME_DURATION, SCREEN_HEIGHT};
 
 pub struct State {
   player: Player,

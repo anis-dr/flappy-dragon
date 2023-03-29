@@ -5,14 +5,14 @@ use bracket_lib::{
 
 use crate::{SCREEN_HEIGHT, player::Player};
 
-struct Obstacle {
-  x: i32,
+pub struct Obstacle {
+  pub x: i32,
   gap_y: i32,
   size: i32,
 }
 
 impl Obstacle {
-  fn new(x: i32, score: i32) -> Self {
+  pub fn new(x: i32, score: i32) -> Self {
     let mut random = RandomNumberGenerator::new();
     Obstacle {
       x,
@@ -21,7 +21,7 @@ impl Obstacle {
     }
   }
 
-  fn render(&mut self, ctx: &mut BTerm, player_x: i32) {
+  pub fn render(&mut self, ctx: &mut BTerm, player_x: i32) {
     let screen_x = self.x - player_x;
     let half_size = self.size / 2;
     // Draw the top half of the obstacle
@@ -34,7 +34,7 @@ impl Obstacle {
     }
   }
 
-  fn hit_obstacle(&self, player: &Player) -> bool {
+  pub(crate) fn hit_obstacle(&self, player: &Player) -> bool {
     let half_size = self.size / 2;
     let does_x_match = player.x == self.x;
     let player_above_gap = player.y < self.gap_y - half_size;

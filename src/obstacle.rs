@@ -1,8 +1,4 @@
-use bracket_lib::{
-  random::RandomNumberGenerator,
-  terminal::{to_cp437, BTerm, BLACK, RED},
-};
-
+use bracket_lib::prelude::*;
 use crate::{SCREEN_HEIGHT, player::Player};
 
 pub struct Obstacle {
